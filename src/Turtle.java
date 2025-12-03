@@ -85,6 +85,7 @@ public class Turtle implements Runnable, ActionListener, MouseListener, MouseMot
         sea.down();
         sea.forward(70);
         sea.up();
+        // ---------------------
 
         // ----- Christmas Tree -----
         // โคนต้นไม้
