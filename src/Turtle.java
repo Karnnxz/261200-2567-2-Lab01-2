@@ -24,6 +24,8 @@ import java.util.*;
 import javax.imageio.ImageIO;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import static java.awt.Color.blue;
+
 /**
  * Turtle is a selfcontained class that will allow students to make
  * beautiful turtle graphics with ease.
@@ -39,37 +41,186 @@ public class Turtle implements Runnable, ActionListener, MouseListener, MouseMot
      *
      * @param a commandline args
      */
-    public static void main(String[] a) throws InterruptedException {
-        Turtle bob = new Turtle();
+    public static void main(String[] args) {
+        Turtle sea = new Turtle();
+        sea.hide();
+        sea.bgcolor("light blue");
+        sea.speed(1);
 
-        // Simple Shape
-        bob.penColor("black");
-        bob.width(3);
-        bob.speed(2);
-        for(int i=0;i<6;i++) {
-            bob.forward(60);
-            bob.left(60);
+        // Snowman
+        // Body
+        sea.penColor("white");
+        sea.up();
+        sea.setPosition(120,-110);
+        sea.down();
+        sea.dot("white", 120.0);
+        sea.up();
+
+        // Head
+        sea.setPosition(120,-30);
+        sea.down();
+        sea.dot("white", 80.0);
+        sea.up();
+
+        // Eyes
+        sea.setPosition(105,-25);
+        sea.down();
+        sea.dot("black", 8.0);
+        sea.up();
+
+        sea.setPosition(133,-25);
+        sea.down();
+        sea.dot("black", 8.0);
+        sea.up();
+
+        // Nose
+        sea.setPosition(119,-35);
+        sea.down();
+        sea.dot("orange", 15.0);
+        sea.up();
+
+        // Scarf
+        sea.penColor("red");
+        sea.up();
+        sea.setPosition(85, -55);
+        sea.width(10);
+        sea.down();
+        sea.forward(70);
+        sea.up();
+
+        // ----- Christmas Tree -----
+        // โคนต้นไม้
+        sea.setPosition(-130, -100);
+        sea.right(90);
+        sea.penColor("brown");
+        sea.width(10);
+        sea.down();
+        sea.forward(60);
+        sea.left(90);
+        sea.forward(45);
+        sea.left(90);
+        sea.forward(60);
+        sea.left(90);
+        sea.forward(45);
+        sea.left(90);
+
+        sea.setPosition(-100, -110);
+        sea.width(30);
+        sea.forward(34);
+        sea.setPosition(-115, -110);
+        sea.width(30);
+        sea.forward(34);
+        sea.up();
+        // ใบไม้
+        sea.penColor("green");
+        sea.width(40);
+        sea.left(90);
+        sea.up();
+
+        sea.setPosition(-150, 60);
+        sea.down();
+        sea.forward(80);
+        sea.left(130);
+        sea.forward(60);
+        sea.left(98);
+        sea.forward(60);
+        sea.up();
+
+        sea.setPosition(-110, 75);
+        sea.down();
+        sea.forward(100);
+        sea.left(132);
+        sea.forward(130);
+        sea.left(130);
+        sea.forward(95);
+        sea.up();
+
+        sea.setPosition(-8, -100);
+        sea.down();
+        sea.forward(160);
+        sea.left(100);
+        sea.forward(160);
+        sea.left(130);
+        sea.forward(205);
+        sea.up();
+
+        sea.setPosition(-160, -70);
+        sea.width(50);
+        sea.down();
+        sea.forward(90);
+        sea.left(130);
+        sea.forward(40);
+        sea.left(50);
+        sea.forward(25);
+        sea.up();
+        // --------------------
+
+        // Star
+        sea.width(10);
+        sea.penColor("yellow");
+        sea.setPosition(-93, 140);
+        sea.down();
+
+        for (int i = 0; i < 5; i++) {
+            sea.forward(30);
+            sea.left(144);
         }
-        bob.up();
-        bob.down();
+        sea.up();
 
-        // random things
-        bob.home();
-        int x = 0;
-        for(int i=0;i<360;i++) {
-            float hue = i / 200f;
-            bob.penColor(java.awt.Color.getHSBColor(hue, 1f, 1f));
+        // Snows
+        sea.setPosition(10, 0);
+        sea.dot("white", 10);
+        sea.up();
 
-            bob.forward(i);
-            bob.width(i/100+1);
-            bob.left(59);
+        sea.setPosition(-200, 170);
+        sea.dot("white", 10);
+        sea.up();
 
-            Thread.sleep(5);
-        }
+        sea.setPosition(205, 25);
+        sea.dot("white", 10);
+        sea.up();
 
-        // Christmas or New year down here
+        sea.setPosition(130, 120);
+        sea.dot("white", 10);
+        sea.up();
 
+        sea.setPosition(-190, 60);
+        sea.dot("white", 10);
+        sea.up();
+
+        sea.setPosition(225, -100);
+        sea.dot("white", 10);
+        sea.up();
+
+        sea.setPosition(80, 60);
+        sea.dot("white", 10);
+        sea.up();
+
+        sea.setPosition(20, 130);
+        sea.dot("white", 10);
+        sea.up();
+
+        sea.setPosition(180, 180);
+        sea.dot("white", 10);
+        sea.up();
+
+        sea.setPosition(-100, 200);
+        sea.dot("white", 10);
+        sea.up();
+
+        sea.setPosition(50, 200);
+        sea.dot("white", 10);
+        sea.up();
+
+        // Ground
+        sea.penColor("white");
+        sea.width(100);
+        sea.setPosition(240, -212);
+        sea.down();
+        sea.forward(480);
     }
+
+
 
     // ========================= Don't modify the code after this point! ========================= //
     private static ArrayList<Turtle> turtles;
